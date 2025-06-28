@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蔡沐恩 - AI工程師簡歷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 30px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #74b9ff);
+            border-radius: 2px;
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 12px 18px;
+            margin: 8px 0;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #e74c3c;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .experience-date {
+            background: linear-gradient(135deg, #3498db, #74b9ff);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .experience-content {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .tech-stack {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 3px;
+            font-weight: 500;
+        }
+
+        .about-me {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .about-me h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .award {
+            background: linear-gradient(135deg, #fdcb6e, #e17055);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px 0;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <div class="avatar">🤖</div>
+                <h1 class="name">蔡沐恩</h1>
+                <h2 class="title">AI工程師</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>qqazqqaz102@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>0916-000-367</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="about-me">
+                    <h3>關於我</h3>
+                    <p><strong>技術面：</strong>具備豐富的深度學習專案開發經驗，擅長解決複雜的AI問題，對於不同程式語言能快速學習並應用。</p>
+                    <p><strong>性格面：</strong>自由開放的學習環境使我具備多元思維，性格彈性可適應各種環境，對自我具備高度自覺，擁有良好溝通協作能力。</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">教育背景</h3>
+                    <div class="education-item">
+                        <h4>國立臺南大學</h4>
+                        <p>資訊工程系碩士班（肄業）</p>
+                        <p>2022-2023</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>國立臺南大學</h4>
+                        <p>資訊工程系（畢業）</p>
+                        <p>2018-2022</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">技能專長</h3>
+                    <div class="skill-category">
+                        <div class="skill-item">Python 🐍</div>
+                        <div class="skill-item">PyTorch ⚡</div>
+                        <div class="skill-item">TensorFlow 🧠</div>
+                        <div class="skill-item">Keras 🔥</div>
+                        <div class="skill-item">HTML/CSS 🎨</div>
+                        <div class="skill-item">PHP 🌐</div>
+                        <div class="skill-item">C/C++/C# 💻</div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="section">
+                    <h3 class="section-title">活動經驗</h3>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">AI代言人採訪經驗</h4>
+                            <span class="experience-date">2023.12</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>於2023年12月25日在台南大學「112年度師生研發成果發表會」上代表AI代言人團隊進行成果報告，這是我首次面向大眾的正式報告。透過此次經驗，不僅提升了我的公開演講能力，也因為與同學合作發表而增強了團隊合作經驗。</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">112年度AIGOOD競賽</h4>
+                            <span class="experience-date">2023.06 - 2023.11</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>在AIGOOD競賽中為國家海洋研究院開發了「<span class="highlight">固定式攝影機水下沙暴預測</span>」系統。除了處理小規模專案管理問題和程式設計技能提升外，AIGOOD競賽的特殊之處在於大量利用ChatGPT的整合，這顯著促進了我們的程式碼開發和細節驗證能力。</p>
+                            <p>與ChatGPT的熟練運用提升了我們的人機協作能力，在競賽中表現優異獲得<span class="award">「技術突破獎」</span>。</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">PySide6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">111年度AIGO競賽</h4>
+                            <span class="experience-date">2022.05 - 2022.11</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>為晶元光電開發「<span class="highlight">運用深度學習的AI檢測分析-牛眼色環辨識</span>」，透過精準的影像分析來加強品質控制流程。</p>
+                            <p>同時為台南市視障者家長協會開發「<span class="highlight">注音去除辨識語音朗讀系統</span>」，去除中小學課文本中的注音符號，方便進行OCR辨識，提升視障孩童的閱讀學習體驗。</p>
+                            <p>獲得了廣泛的專案開發技能，包括需求分析、技術文件撰寫、程式設計和使用者溝通，顯著提高了問題解決和程式設計的能力。</p>
+                            <div style="margin: 15px 0;">
+                                <span class="award">AIGO競賽 特別佳作(AI牛眼辨識)</span>
+                                <span class="award">AIGO競賽 特別佳作(注音去除)</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">PySide6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">2022國際大專院校產學實作競賽</h4>
+                            <span class="experience-date">2022.05 - 2022.11</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>開發影像辨識技術協助重度視障者辨識物品形狀並轉換為摩斯密碼進行語音播放的創新專案。</p>
+                            <p>榮獲<span class="award">2022年全國大學生人工智慧及其應用競賽「佳作」</span>。此次經驗特別在於競賽中評審會直接在參賽者的展位上評估成果，在嚴格的三分鐘時間限制內提供具影響力的演講，使我獲得了寶貴的簡報經驗。</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Keras</span>
+                                <span class="tech-tag">PySide6</span>
+                                <span class="tech-tag">串口通訊協定</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">工作經驗</h3>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">臺南大學AI中心 - 工讀生</h4>
+                            <span class="experience-date">2018.01 - 2023.12</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>負責文書處理、對話紀錄整理以及協助各種活動的庶務工作。擔任種子教師培訓和期中/期末活動的助理，經過五年期間練就了活動規劃和執行技能。</p>
+                            <p>熟練運用辦公室軟體工具，包括Microsoft Word和PowerPoint的進階功能。</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">產學合作 - 牛隻重量估測專案</h4>
+                            <span class="experience-date">2022.11 - 2023.01</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>作為獨立執行的專案，成功克服了對人工智慧和技術文件的不熟悉障礙。在資料蒐集、分析、程式設計、模型訓練和評估方面獲得了顯著的技術進步。</p>
+                            <p>雖然最終因企業策略方向調整而終止合作，但仍完成了牛隻重量估測的可行性研究。</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Keras</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4 class="experience-title">AI4Y 高中生營隊課程助教</h4>
+                            <span class="experience-date">2022.05 - 2022.07</span>
+                        </div>
+                        <div class="experience-content">
+                            <p>協助從課程規劃到結束的全面課程規劃和執行，支援授課教師進行教學目標達成。提供學生個別指導並進行課後輔導學習，增強學習體驗。</p>
+                            <p>使用Intel的OpenVINO toolkit進行影像辨識相關技術的實作教學，獲得課程設計、有效溝通和團隊組織管理的寶貴見解。</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Keras</span>
+                                <span class="tech-tag">OpenVINO Toolkit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
