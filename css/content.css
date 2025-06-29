@@ -1,0 +1,422 @@
+/**
+ * ======================================
+ * Content 內容區域樣式模組
+ * ======================================
+ * 
+ * 包含：
+ * 1. Content 主體和導航樣式
+ * 2. 時間軸設計樣式
+ * 3. 經驗項目樣式
+ * 4. 各種標籤和連結樣式
+ */
+
+/* ===== Content 主體樣式 ===== */
+.content {
+    padding: 40px;
+    background: linear-gradient(180deg, #FEFCF9 0%, #F9F6F0 100%);
+    grid-column: 2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===== 導航區域樣式 ===== */
+.navigation-section {
+    background: linear-gradient(135deg, #FEFCF9 0%, #F9F6F0 100%);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #6C5CE7;
+}
+
+.tab-navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* ===== 分頁按鈕樣式 ===== */
+.tab-btn {
+    background: linear-gradient(135deg, #F0EDE8, #E8E3D8);
+    border: 2px solid #D4A574;
+    color: #5D4E37;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+    text-align: center;
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.tab-btn:hover {
+    background: linear-gradient(135deg, #E8D5A0, #DCC78F);
+    border-color: #B8860B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+}
+
+.tab-btn:hover::before {
+    left: 100%;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #E8D5A0, #DCC78F);
+    border-color: #B8860B;
+    color: #654321;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active::after {
+    content: '▼';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #B8860B;
+    font-size: 0.8em;
+}
+
+/* ===== 分頁內容容器樣式 ===== */
+.tab-content-container {
+    position: relative;
+    min-height: 600px;
+}
+
+.tab-content {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tab-content.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* ===== 時間軸設計樣式 ===== */
+.timeline-section {
+    margin-bottom: 40px;
+}
+
+.timeline-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2D1B69;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.timeline-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6C5CE7, #A29BFE);
+    border-radius: 2px;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #6C5CE7, #A29BFE, #DCC78F);
+    border-radius: 2px;
+}
+
+/* ===== 經驗項目容器樣式 ===== */
+.experience-item {
+    background: linear-gradient(135deg, #FEFCF9 0%, #F9F6F0 100%);
+    padding: 0;
+    margin: 25px 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(45, 27, 105, 0.1);
+    border-left: 4px solid #6C5CE7;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 35px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #6C5CE7, #A29BFE);
+    border: 3px solid #FEFCF9;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    z-index: 2;
+}
+
+.experience-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 12px 35px rgba(45, 27, 105, 0.15);
+    border-left-color: #A29BFE;
+}
+
+.experience-item:hover::before {
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    box-shadow: 0 0 0 6px rgba(162, 155, 254, 0.3);
+    transform: scale(1.2);
+}
+
+/* ===== 經驗項目標題區域 - 使用CSS Grid ===== */
+.experience-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "title date"
+        "links links";
+    gap: 15px 20px;
+    padding: 25px 25px 15px 25px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-title {
+    grid-area: title;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #5F3DC4;
+    line-height: 1.2;
+    margin: 0;
+    align-self: center;
+}
+
+.experience-header .links-section {
+    grid-area: links;
+    justify-self: start;
+    align-self: start;
+    margin-top: 5px;
+}
+
+.experience-date {
+    grid-area: date;
+    background: linear-gradient(135deg, #6C5CE7, #A29BFE);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+    justify-self: end;
+    align-self: center;
+}
+
+/* ===== 經驗內容區域樣式 ===== */
+.experience-content {
+    padding: 0 25px 25px 25px;
+    line-height: 1.6;
+    color: #555;
+    box-sizing: border-box;
+}
+
+/* ===== 技術標籤樣式 ===== */
+.tech-stack {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #DDD0C0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #8E9AAF, #6B73A3);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin: 0;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(142, 154, 175, 0.3);
+    border: 1px solid #5D6B93;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.tech-tag::before {
+    content: '🔧 ';
+    font-size: 0.8em;
+    margin-right: 2px;
+}
+
+/* ===== 連結區域樣式 ===== */
+.links-section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 0;
+}
+
+/* 空的 links-section 佔用最小空間 */
+
+.link-item {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin: 0;
+    transition: all 0.3s ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.link-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    text-decoration: none;
+    background: linear-gradient(135deg, #6C5CE7, #5F3DC4);
+}
+
+.link-item::before {
+    content: '🔗 ';
+    margin-right: 4px;
+}
+
+/* ===== 高亮和獎項標籤樣式 ===== */
+.highlight {
+    background: linear-gradient(135deg, rgba(232, 213, 160, 0.8), rgba(220, 199, 143, 0.8));
+    color: #5D4E37;
+    padding: 2px 6px;
+    border-radius: 6px;
+    display: inline;
+    font-weight: 500;
+    font-size: 1em;
+    border: 1px solid #D4A574;
+    vertical-align: baseline;
+    line-height: 1;
+    margin: 0 1px;
+    border-left: 3px solid #B8860B;
+}
+
+.award {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #8B4513;
+    padding: 2px 8px;
+    border-radius: 8px;
+    display: inline;
+    margin: 0 2px;
+    font-weight: 700;
+    font-size: 0.95em;
+    border: 1px solid #DAA520;
+    vertical-align: baseline;
+    line-height: 1;
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    position: relative;
+}
+
+.award::before {
+    content: '🏆 ';
+    font-size: 0.8em;
+    margin-right: 2px;
+}
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+    
+    .experience-header {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "title"
+            "date"
+            "links";
+        gap: 10px;
+        padding: 20px;
+    }
+    
+    .experience-header .links-section {
+        justify-self: start;
+        margin-top: 0;
+    }
+    
+    .experience-date {
+        justify-self: start;
+    }
+    
+    .experience-content {
+        padding: 0 20px 20px 20px;
+    }
+    
+    .timeline-container {
+        padding-left: 20px;
+    }
+    
+    .timeline-container::before {
+        left: 10px;
+    }
+    
+    .experience-item::before {
+        left: -23px;
+        top: 25px;
+    }
+    
+    .tab-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+} 

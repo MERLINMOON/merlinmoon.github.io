@@ -1,0 +1,209 @@
+/**
+ * ======================================
+ * Sidebar 側邊欄樣式模組
+ * ======================================
+ * 
+ * 包含：
+ * 1. Sidebar 主體樣式
+ * 2. 關於我卡片樣式
+ * 3. 教育背景卡片樣式
+ * 4. 技能專長進度條樣式
+ */
+
+/* ===== Sidebar 主體樣式 ===== */
+.sidebar {
+    background: linear-gradient(180deg, #F0EDE8 0%, #E8E3D8 100%);
+    padding: 40px 30px;
+    min-height: 100%;
+    position: sticky;
+    top: 0;
+    grid-column: 1;
+    width: 400px;
+    box-sizing: border-box;
+}
+
+/* ===== 卡片區塊樣式 ===== */
+.card-section {
+    background: #F0EDE8;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #D4A574;
+    transition: all 0.3s ease;
+}
+
+.card-section:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== 關於我卡片樣式 ===== */
+.about-cards, .education-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.about-card-level2, .education-card-level2 {
+    background: linear-gradient(135deg, rgba(232, 213, 160, 0.7), rgba(220, 199, 143, 0.7));
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    border-left: 3px solid #B8860B;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.about-card-level2:hover, .education-card-level2:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 卡片標題樣式 ===== */
+.about-card-level2 h4, .education-card-level2 h4 {
+    color: #654321;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* ===== 技術面和性格面特殊裝飾 ===== */
+.about-card-level2 h4 {
+    position: relative;
+    padding-left: 30px;
+    font-weight: 700;
+    color: #5D4E37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.about-card-level2:first-child h4::before {
+    content: '💻';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #6C5CE7, #A29BFE);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+}
+
+.about-card-level2:last-child h4::before {
+    content: '🧠';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* ===== 卡片內容文字樣式 ===== */
+.about-card-level2 p, .education-card-level2 p {
+    color: #5D4E37;
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+/* ===== 技能專長樣式 ===== */
+.skill-category {
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.skill-item {
+    background: #F0EDE8;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #D4A574;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item span {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+}
+
+/* ===== 技能進度條動畫 ===== */
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(232, 213, 160, 0.6), rgba(220, 199, 143, 0.6));
+    width: 0;
+    border-radius: 25px;
+    z-index: 0;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== 技能熟練度動畫 ===== */
+.skill-item[data-proficiency="80"]::before { 
+    animation: fillSkill80 2s ease-out 0.1s both;
+}
+.skill-item[data-proficiency="50"]::before { 
+    animation: fillSkill50 2s ease-out 0.2s both;
+}
+.skill-item[data-proficiency="70"]::before { 
+    animation: fillSkill70 2s ease-out 0.3s both;
+}
+.skill-item[data-proficiency="90"]::before { 
+    animation: fillSkill90 2s ease-out 0.4s both;
+}
+.skill-item[data-proficiency="60"]::before { 
+    animation: fillSkill60 2s ease-out 0.5s both;
+}
+
+/* ===== 技能進度動畫關鍵幀 ===== */
+@keyframes fillSkill80 { from { width: 0; } to { width: 80%; } }
+@keyframes fillSkill50 { from { width: 0; } to { width: 50%; } }
+@keyframes fillSkill70 { from { width: 0; } to { width: 70%; } }
+@keyframes fillSkill90 { from { width: 0; } to { width: 90%; } }
+@keyframes fillSkill60 { from { width: 0; } to { width: 60%; } }
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 350px;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding: 20px;
+    }
+    
+    .card-section {
+        padding: 20px;
+        margin: 10px 0;
+    }
+    
+    .about-card-level2, .education-card-level2 {
+        padding: 15px;
+    }
+} 

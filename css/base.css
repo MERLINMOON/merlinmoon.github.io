@@ -1,0 +1,108 @@
+/**
+ * ======================================
+ * 基礎樣式模組 (Base Styles)
+ * ======================================
+ * 
+ * 包含：
+ * 1. 全域重置樣式
+ * 2. 基本佈局結構
+ * 3. 共用樣式變數
+ */
+
+/* ===== 全域重置樣式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== 根元素設定 ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #F5F2ED 0%, #EDE8DC 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* ===== 主容器設定 ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(245, 242, 237, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ===== 主要內容區域佈局 ===== */
+.main-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 0;
+    align-items: start;
+    min-height: calc(100vh - 200px);
+}
+
+/* ===== 區塊設定 ===== */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #5F3DC4;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #6C5CE7, #A29BFE);
+    border-radius: 2px;
+}
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+    }
+    
+    .sidebar {
+        width: 100%;
+        order: 1;
+        margin-bottom: 20px;
+        position: static;
+    }
+    
+    .content {
+        width: 100%;
+        order: 2;
+        padding: 20px;
+    }
+    
+    .container {
+        margin: 10px;
+        padding: 0;
+    }
+    
+    body {
+        padding: 10px;
+    }
+} 

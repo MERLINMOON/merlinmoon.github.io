@@ -1,0 +1,254 @@
+/**
+ * ======================================
+ * Header 頭部樣式模組
+ * ======================================
+ * 
+ * 包含：
+ * 1. Header 背景和動畫效果
+ * 2. 個人頭像樣式
+ * 3. 姓名和職位樣式
+ * 4. 聯絡資訊樣式
+ */
+
+/* ===== Header 主體樣式 ===== */
+.header {
+    background: linear-gradient(135deg, #2D1B69 0%, #3D2A7D 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== 背景網格動畫 ===== */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    animation: gridMove 30s linear infinite;
+}
+
+/* ===== 掃描線動畫 ===== */
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.8), transparent);
+    animation: scanLine 12s ease-in-out infinite;
+    z-index: 3;
+}
+
+/* ===== 浮動粒子效果 ===== */
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+    background-image: 
+        radial-gradient(circle 4px at 15% 20%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 70% 30%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 25% 60%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 85% 50%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 40% 80%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 60% 15%, rgba(255, 215, 0, 0.3) 2px, transparent 4px),
+        radial-gradient(circle 4px at 90% 75%, rgba(255, 215, 0, 0.3) 2px, transparent 4px);
+    animation: headerDots 6s ease-in-out infinite;
+}
+
+/* ===== 星點動畫效果 ===== */
+.floating-particles::before {
+    content: '✦ ✧ ⭐ ✨ ✦ ✧ ⭐ ✨ ✦ ✧ ⭐ ✨ ✦ ✧ ⭐ ✨ ✦';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 215, 0, 0.6);
+    font-size: 10px;
+    letter-spacing: 40px;
+    line-height: 40px;
+    text-align: justify;
+    overflow: hidden;
+    animation: starTwinkle1 6s ease-in-out infinite;
+    transform: rotate(15deg);
+}
+
+.floating-particles::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 215, 0, 0.5);
+    border-radius: 50%;
+    top: 25%;
+    left: 80%;
+    animation: starTwinkle2 8s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+/* ===== 個人資訊區域 ===== */
+.profile-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 頭像樣式 ===== */
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    animation: avatarGlow 6s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.avatar-photo {
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* ===== 姓名和職位樣式 ===== */
+.name {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 1.3em;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* ===== 聯絡資訊樣式 ===== */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #A29BFE;
+    text-decoration: underline;
+}
+
+/* ===== 動畫關鍵幀 ===== */
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(10px, 10px); }
+}
+
+@keyframes scanLine {
+    0% { left: -100%; top: 15%; opacity: 1; }
+    18% { left: 100%; top: 15%; opacity: 1; }
+    20% { left: 100%; top: 15%; opacity: 0; }
+    22% { left: 100%; top: 65%; opacity: 0; }
+    25% { left: 100%; top: 65%; opacity: 1; }
+    43% { left: -100%; top: 65%; opacity: 1; }
+    45% { left: -100%; top: 65%; opacity: 0; }
+    47% { left: -100%; top: 35%; opacity: 0; }
+    50% { left: -100%; top: 35%; opacity: 1; }
+    68% { left: 100%; top: 35%; opacity: 1; }
+    70% { left: 100%; top: 35%; opacity: 0; }
+    72% { left: 100%; top: 85%; opacity: 0; }
+    75% { left: 100%; top: 85%; opacity: 1; }
+    93% { left: -100%; top: 85%; opacity: 1; }
+    95% { left: -100%; top: 85%; opacity: 0; }
+    100% { left: -100%; top: 15%; opacity: 0; }
+}
+
+@keyframes starTwinkle1 {
+    0%, 100% { opacity: 0.3; }
+    20% { opacity: 0.8; }
+    40% { opacity: 0.5; }
+    60% { opacity: 1; }
+    80% { opacity: 0.4; }
+}
+
+@keyframes starTwinkle2 {
+    0%, 100% { opacity: 0.5; }
+    25% { opacity: 0.9; }
+    50% { opacity: 0.3; }
+    75% { opacity: 0.7; }
+}
+
+@keyframes headerDots {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes avatarGlow {
+    0%, 100% { 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .name {
+        font-size: 2em;
+    }
+    
+    .title {
+        font-size: 1.1em;
+    }
+} 
